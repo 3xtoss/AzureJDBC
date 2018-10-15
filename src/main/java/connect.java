@@ -1,7 +1,21 @@
+
+//imported libaries
 import java.sql.*;
 import java.io.*;
 import java.util.*;
+
+/**
+ * 
+ * @author jared
+ * @version 1.0
+ * @description simple application
+ */
 public class connect {
+	
+	
+	/**
+	 * important global variables
+	 */
 	
 	final static double mostProblems = 0.20;
 	final static double secondMostProblems = 0.15;
@@ -9,10 +23,20 @@ public class connect {
 	final static double baseRaise = 0.05;
 	final static Connection connection = getConnection();
 	
+	/**
+	 * 
+	 * @param args
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
     public static void main(String[] args) throws NumberFormatException, IOException {
         run();
   }
-    
+    /**
+     * 
+     * @throws NumberFormatException
+     * @throws IOException
+     */
     public static void run() throws NumberFormatException, IOException {
     	//LETS USER PICK AN OPTION
     	BufferedReader user_input = new BufferedReader(new InputStreamReader(System.in));
@@ -96,7 +120,9 @@ public class connect {
     		user_choice = Integer.parseInt(user_input.readLine());
     	}
     }
-    
+    /**
+     * 
+     */
     public static void menu() {
     	System.out.println("PLEASE ENTER AN INTEGER TO SELECT A MENU OPTION");
     	System.out.println("1. Insert Problem");
@@ -105,7 +131,12 @@ public class connect {
     	System.out.println("4. Quit");
     }
     
-    
+    /**
+     * 
+     * @param connection
+     * @param author_id
+     * @param multiplier
+     */
     public static void changeCompensation(Connection connection, int author_id, double multiplier) {
     	
     	double newCompensation;
