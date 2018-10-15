@@ -138,6 +138,7 @@ public class connect {
      * @param multiplier
      */
     public static void changeCompensation(Connection connection, int author_id, double multiplier) {
+
     	
     	double newCompensation;
     	int compensation = 0;
@@ -167,6 +168,12 @@ public class connect {
     		System.out.println(e.getMessage());
     	}
     }
+    
+    /**
+     * 
+     * @param connection
+     * @return
+     */
     public static ArrayList<Integer> orderAuthorsByTotalProblems(Connection connection) {
     	
     	//we know there is only 4 authors
@@ -190,14 +197,16 @@ public class connect {
     	return authorsByMaxSize;
     }
     
-    /*public static void ChangeCompensation(Connection connection, int author_id, int compensationRaise) {
-    	try {
-    		
-    	}catch (SQLException e) {
-    		
-    	}
-    }*/
-    
+
+    /**
+     * 
+     * @param connection
+     * @param problem_id
+     * @param problem_name
+     * @param max_score
+     * @param author_id
+     * @throws SQLException
+     */
     public static void writeToProblemTable(Connection connection, int problem_id, String problem_name, int max_score, int author_id) throws SQLException {
     	//Scanner table_input = new Scanner(System.in);
     	
@@ -220,6 +229,13 @@ public class connect {
     	}
     }
     //SELECT methods
+    
+    /**
+     * 
+     * @param tableName
+     * @param connection
+     * @throws SQLException
+     */
     public static void selectFromTable(String tableName, Connection connection) throws SQLException {
        Statement statement = connection.createStatement();
        String sql = "SELECT * FROM " + tableName;
@@ -238,7 +254,11 @@ public class connect {
        }
        System.out.println("");
    }
-
+    
+    /**
+     * 
+     * @return Connection
+     */
     public static Connection getConnection() {
     	final String connectionString = "jdbc:sqlserver://nels4696-sql-server.database.windows.net:1433;database=​cs-dsa-4513-sql-db​;user=nels4696@nels4696-sql-server;password=Sooner$wag12;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
 
